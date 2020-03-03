@@ -135,10 +135,14 @@ function windowResized(){
 function printTexts(){
   strokeWeight(1);
   stroke('black');
-  text('Adjustable Undersampled (1-256) Sine Wave', 0, firstWave + 16);
-  text('Nyquist Rate Sine Wave (Nyquist Frequency * 2)', 0, secondWave + 16);
-  text('Undersampled-Nyquist Rate Sine Wave Combined', 0, combinedWave + 16);
-  text('Oversampled Sine Wave (Nyquist Frequency * 4)', 0, oversampledWave + 16);
-  let Text = ['Frequency:', nfs(freq, 3, 0), 'Sample Rate:', nfs(sampleRate, 3, 0), 'Phase:', nfs(phase, 1, 6)];
+  let Text = ['Undersampled', nfc(sampleRate, 4, 0), 'Sine Wave'];
+  text(join(Text, ' '), 0, firstWave + 16);
+  Text = ['Nyquist Rate', nfc(sampleRate * 2, 4, 0), 'Sine Wave'];
+  text(join(Text, ' '), 0, secondWave + 16);
+  Text = ['Undersampled-Nyquist Rate', 'Sine Wave'];
+  text(join(Text, ' '), 0, combinedWave + 16);
+  Text = ['Oversampled', nfc(sampleRate * 4, 4, 0), 'Sine Wave'];
+  text(join(Text, ' '), 0, oversampledWave + 16);
+  Text = ['Frequency:', nfs(freq, 3, 0), 'Sample Rate:', nfs(sampleRate, 3, 0), 'Phase:', nfs(phase, 1, 6)];
   text(join(Text, ' '), 16, 80);
 }
